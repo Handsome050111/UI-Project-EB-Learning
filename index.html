@@ -2,459 +2,435 @@
 <html>
 
 <head>
-  <title>Newsletter App</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="img/c2.png">
-
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-
-  <style>
-    .roboto {
-      font-family: "Roboto", sans-serif;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="icon" href="img/c2.png">
 </head>
 
-<body class="roboto">
-  <header class="bg-white/95 backdrop-blur-sm">
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="h-16 flex items-center justify-between">
-        <!-- Left: logo -->
-        <div class="flex items-center flex-1 md:flex-none">
-          <a href="#" class="inline-block">
-            <img src="img/logo1.png" alt="Brand logo" class="w-40 h-auto object-contain md:w-[212px] md:h-[32px]">
-          </a>
+<body>
+    <!-- NAVBAR START-->
+    <header class="bg-white/95 backdrop-blur-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="h-16 flex items-center justify-between">
+
+                <!-- Left: logo -->
+                <div class="flex items-center flex-1 md:flex-none">
+                    <a href="index.html" class="inline-block">
+                        <img src="images/logo.png" alt="Brand logo"
+                            class="w-40 h-auto object-contain md:w-[212px] md:h-[32px]">
+                    </a>
+                </div>
+
+                <!-- Right: menu + CTA (desktop) -->
+                <div class="hidden md:flex md:items-center md:gap-6">
+
+                    <!-- nav links -->
+                    <ul class="flex items-center gap-8 text-base font-medium text-gray-700">
+                        <li><a href="HowItWorks.html" class="hover:text-green-600 transition">How it works</a></li>
+                        <li><a href="whynewsletter.html" class="text-[#119C59] font-semibold">Why NewsletterApps?</a></li>
+                        <li><a href="pricing.html" class="hover:text-green-600 transition">Pricing</a></li>
+                        <li><a href="blog.html" class="hover:text-green-600 transition">Blog</a></li>
+                    </ul>
+
+                    <!-- Login button spaced from links -->
+                    <div class="ml-6">
+                        <a href="login.html"
+                            class="inline-block px-14 py-2 rounded-full border-2 border-[#119C59] text-[#119C59] font-semibold hover:bg-[#119C59] hover:text-white transition">
+                            LOGIN
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile: hamburger -->
+                <div class="md:hidden flex items-center">
+                    <button id="navToggle" aria-controls="mobileMenu" aria-expanded="false"
+                        class="p-2 rounded-md inline-flex items-center justify-center text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                        <!-- svg toggled by JS -->
+                        <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="iconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile menu (hidden by default) -->
+            <div id="mobileMenu" class="md:hidden hidden" role="region" aria-labelledby="navToggle">
+                <div class="pt-4 pb-6 border-t">
+                    <ul class="flex flex-col gap-4 px-2 text-base font-medium text-gray-700">
+                        <li><a href="HowItWorks.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-50 hover:text-green-600 transition">How
+                                it works</a></li>
+                        <li><a href="whynewsletter.html"
+                                class="block px-3 py-2 rounded-md text-[#119C59] font-semibold hover:bg-gray-50 transition">Why
+                                NewsletterApps?</a></li>
+                        <li><a href="pricing.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-50 hover:text-green-600 transition">Pricing</a>
+                        </li>
+                        <li><a href="blog.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-50 hover:text-green-600 transition">Blog</a>
+                        </li>
+                    </ul>
+
+                    <!-- Mobile CTA -->
+                    <div class="mt-4 px-3">
+                        <a href="login.html"
+                            class="block text-center w-full  px-4 py-2 rounded-full border-2 border-[#119C59] text-[#119C59] font-semibold hover:bg-[#119C59] hover:text-white transition">
+                            LOGIN
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Tiny script to toggle mobile menu & icons -->
+    <script>
+        (function () {
+            const btn = document.getElementById('navToggle');
+            const menu = document.getElementById('mobileMenu');
+            const iconOpen = document.getElementById('iconOpen');
+            const iconClose = document.getElementById('iconClose');
+
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!expanded));
+                menu.classList.toggle('hidden');
+                menu.classList.toggle('flex');
+                // toggle icons
+                iconOpen.classList.toggle('hidden');
+                iconClose.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when focus leaves (optional nicer behavior)
+            document.addEventListener('click', (e) => {
+                if (!btn.contains(e.target) && !menu.contains(e.target) && !menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                    menu.classList.remove('flex');
+                    btn.setAttribute('aria-expanded', 'false');
+                    iconOpen.classList.remove('hidden');
+                    iconClose.classList.add('hidden');
+                }
+            });
+        })();
+    </script>
+    <!-- NAVBAR END -->
+
+    <!-- Hero section start -->
+    <section class="mt-10 md:mt-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+
+            <!-- Left Side -->
+            <div class="flex flex-col gap-6 text-center md:text-left">
+                <!-- Text Content -->
+                <div>
+                    <h1 class="text-3xl md:text-5xl leading-snug">
+                        Bring back the joy of <br class="hidden md:block"> reading newsletters
+                    </h1>
+                    <p class="mt-4 text-lg text-[#119C59] leading-relaxed">
+                        Discover, subscribe and manage all <br class="hidden md:block">
+                        your email newsletters in one place.
+                    </p>
+                </div>
+
+                <!-- Button -->
+                <div>
+                    <button
+                        class="bg-[#119C59] text-white hover:text-[#119C59] hover:bg-white text-[15px] px-8 md:px-12 py-2 md:py-3 rounded-full transition border-2 cursor-pointer font-medium">
+                        TRY FOR FREE
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="flex justify-center md:justify-end">
+                <img src="images/Frame.png" alt="Hero Image"
+                    class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+            </div>
+
         </div>
+    </section>
 
-        <!-- Right: menu + CTA (desktop) -->
-        <div class="hidden md:flex md:items-center md:gap-6">
-          <!-- nav links -->
-          <ul class="flex items-center gap-8 text-base font-medium text-gray-700">
-            <li><a href="HowItWorks.html" class="hover:text-green-600 transition">How it works</a></li>
-            <li><a href="#" class="text-[#119C59] font-semibold">Why NewsletterApps?</a></li>
-            <li><a href="#" class="hover:text-green-600 transition">Pricing</a></li>
-            <li><a href="#" class="hover:text-green-600 transition">Blog</a></li>
-          </ul>
-
-          <!-- Login button -->
-          <div class="ml-6">
-            <a href="login.html"
-              class="inline-block px-14 py-2 rounded-full border-2 border-[#119C59] text-[#119C59] font-semibold hover:bg-[#119C59] hover:text-white transition">
-              LOGIN
-            </a>
-          </div>
-        </div>
-
-        <!-- Mobile hamburger -->
-        <div class="md:hidden flex items-center">
-          <button id="navToggle" aria-controls="mobileMenu" aria-expanded="false"
-            class="p-2 rounded-md inline-flex items-center justify-center text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-            <!-- svg toggled by JS -->
-            <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-            <svg id="iconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile menu -->
-      <div id="mobileMenu" class="md:hidden hidden" role="region" aria-labelledby="navToggle">
-        <div class="pt-4 pb-6 border-t">
-          <ul class="flex flex-col gap-4 px-2 text-base font-medium text-gray-700">
-            <li><a href="#" class="block px-3 py-2 rounded-md hover:bg-gray-50 hover:text-green-600 transition">How
-                it works</a></li>
-            <li><a href="#"
-                class="block px-3 py-2 rounded-md text-[#119C59] font-semibold hover:bg-gray-50 transition">Why
-                NewsletterApps?</a></li>
-            <li><a href="#"
-                class="block px-3 py-2 rounded-md hover:bg-gray-50 hover:text-green-600 transition">Pricing</a>
-            </li>
-            <li><a href="#" class="block px-3 py-2 rounded-md hover:bg-gray-50 hover:text-green-600 transition">Blog</a>
-            </li>
-          </ul>
-
-          <div class="mt-4 px-3">
-            <a href="#"
-              class="block text-center w-full px-10 py-2 rounded-full border-2 border-[#119C59] text-[#119C59] font-semibold hover:bg-[#119C59] hover:text-white transition">
-              LOGIN
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-
-  <!-- Section -->
-  <section class="flex flex-col md:flex-row">
-    <div class="w-full md:w-6/12">
-      <h1 class="text-2xl md:text-4xl font-light tracking-widest mt-10 md:mt-20 ml-4 md:ml-20 leading-tight">
-        With Newsletter you will:
-      </h1>
-      <h1 class="w-50 ml-2 mt-5 md:ml-20 md:mt-5 text-[#119C59] font-normal text-md h-20 md:h-20">With Newsletter you
-        will:</h1>
-      <button
-        class="ml-4 md:ml-20 mt-6 bg-[#119C59] text-white px-6 md:px-8 py-3 rounded-full text-sm hover:bg-white hover:text-[#119C59] hover:border-[#119C59] border border-2">How
-        it Works</button>
-
-    </div>
-    <div class="w-full md:w-6/12 bg-[url('img/whyNL1.png')] bg-cover bg-right h-[250px] md:h-[450px] mt-6 md:mt-10">
-    </div>
-  </section>
-
-
-
-
-
-  <!-- Section -->
-  <section class="bg-[#FAF9F7] min-h-[800px] w-full flex flex-col items-center relative px-4">
-    <h1 class="mt-10 mb-2 text-2xl md:text-3xl text-center z-10">Why Newsletter? How to enjoy your feed?</h1>
-    <h1 class="text-[#119C59] mb-[100px] md:mb-[150px] text-center z-10 text-base md:text-lg">
-      Be ready for an amazing experience.
-    </h1>
-
-    <img src="img/whyNL2.png" class="absolute w-[250px] md:w-[450px] top-[150px] md:top-[200px] z-0" alt="">
-
-    <!-- First Row -->
-    <div class="w-full md:w-8/12 flex flex-col md:flex-row gap-8 md:gap-0 md:h-20 z-10 justify-between mb-10 md:mb-20">
-      <div class="w-full md:w-3/12 relative mt-55 md:mt-0">
-        <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
-        <h1 class="text-[15px] font-semibold">Kill The Spam</h1>
-        <p class="text-[14px] text-gray-700">
-          Use Newsletter email to subscribe to newsletters. Win the battle against spam. Earn more time for a
-          joyful reading.
-        </p>
-      </div>
-      <div class="w-full md:w-3/12 relative">
-        <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
-        <h1 class="text-[15px] font-semibold">One-Click Unsubscribe</h1>
-        <p class="text-[14px] text-gray-700">
-          Don’t like what you’re reading? Remove the feed and never see it again.
-        </p>
-      </div>
-    </div>
-
-    <!-- Second Row -->
-    <div class="w-full md:w-10/12 flex flex-col md:flex-row gap-8 md:gap-0 md:h-30 z-10 justify-between mb-10 md:mb-20">
-      <div class="w-full md:w-3/12 relative">
-        <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
-        <h1 class="text-[15px] font-semibold w-40">Be part of Newsletter community</h1>
-        <p class="text-[14px] text-gray-700">
-          Join top experts for a chat on the topics and trends that matter to you.
-        </p>
-      </div>
-      <div class="w-full md:w-3/12 relative">
-        <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
-        <h1 class="text-[15px] font-semibold">Control Your Feed</h1>
-        <p class="text-[14px] text-gray-700">
-          Group newsletters into folders, create labels, quickly mark as read and update the appearance.
-        </p>
-      </div>
-    </div>
-
-    <!-- Third Row -->
-    <div class="w-full md:w-8/12 flex flex-col md:flex-row gap-8 md:gap-0 md:h-30 z-10 justify-between">
-      <div class="w-full md:w-3/12 relative">
-        <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
-        <h1 class="text-[15px] font-semibold">Discover Newsletters</h1>
-        <p class="text-[14px] text-gray-700">
-          Browse through your interests and find the ultimate content. Inspire yourself!
-        </p>
-      </div>
-      <div class="w-full md:w-3/12 relative">
-        <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
-        <h1 class="text-[15px] font-semibold">Enjoy Newsletter</h1>
-        <p class="text-[14px] text-gray-700">
-          No ads and spam in this app. Take reading and sharing to the next level with Newsletter.
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- Section -->
-  <section>
-    <!-- Header Section -->
-    <div class="w-full flex flex-col items-center mb-10 px-4">
-      <h1 class="mb-5 mt-10 text-2xl md:text-3xl max-w-xl text-center">
-        Our team created a special solution for your needs.
-      </h1>
-      <h1 class="text-center text-[#119C59] text-[18px]">With Newsletter-App you will:</h1>
-    </div>
-
-    <!-- Features Grid -->
-    <div class="w-full flex flex-wrap justify-center gap-8 px-4 text-center">
-      <!-- Card 1 -->
-      <div class="w-full max-w-xs flex flex-col items-center">
-        <img src="img/c1.png" alt="" class="w-20 mb-4">
-        <h1 class="text-2xl font-semibold mb-2">Kill The Spam</h1>
-        <p class="text-gray-700 text-sm">
-          Get your own Newsletter email. Subscribe with one-click for the most relevant newsletters and avoid the spam.
-        </p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="w-full max-w-xs flex flex-col items-center">
-        <img src="img/c2.png" alt="" class="w-20 mb-4">
-        <h1 class="text-2xl font-semibold mb-2">Save Your Time</h1>
-        <p class="text-gray-700 text-sm">
-          Organize all your favorite newsletters into one application. Use all features to manage them. Control your
-          feed.
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="w-full max-w-xs flex flex-col items-center">
-        <img src="img/c3.png" alt="" class="w-20 mb-4">
-        <h1 class="text-2xl font-semibold mb-2">Find Top Content</h1>
-        <p class="text-gray-700 text-sm">
-          Select categories according to your interests and find the best newsletters for you in our application.
-        </p>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="w-full max-w-xs flex flex-col items-center">
-        <img src="img/c4.png" alt="" class="w-20 mb-4">
-        <h1 class="text-2xl font-semibold mb-2">Skip Ads</h1>
-        <p class="text-gray-700 text-sm">
-          Everybody likes to read newsletters without any ads, pop-ups, and all kinds of "shocking" marketing
-          activities.
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-  <!-- Section -->
-  <section class="min-h-[800px] flex flex-col">
-    <!-- Newsletter Card -->
-    <div
-      class="w-11/12 max-w-6xl mx-auto bg-[#F4F3F1] rounded-2xl mt-20 flex items-center flex-col shadow-lg px-4 py-10 text-center">
-      <h1 class="text-2xl md:text-4xl w-full md:w-8/12 mx-auto">
-        No ads and spam in this app. Take reading and sharing to the next level with Newsletter.
-      </h1>
-      <button
-        class="bg-white border-[#119C59] text-[#119C59] px-6 py-3 rounded-full text-sm hover:bg-[#119C59] hover:text-white border mt-8">
-        How it Works
-      </button>
-    </div>
-
-    <!-- Callout Banner -->
-    <div class="bg-[#FAF9F7] w-full mt-10 py-6 text-center">
-      <h1 class="text-[#119C59] text-xl font-semibold">
-        Join 1000+ Happy Premium Users
-      </h1>
-    </div>
-
-    <!-- Testimonials -->
-    <div class="flex flex-wrap justify-center gap-6 bg-[#FAF9F7] py-10">
-      <!-- Testimonial Card -->
-      <div class="w-11/12 md:w-[30%] bg-white p-5 rounded-lg shadow-md relative">
-        <img src="img/“”.png" alt="" class="w-8 absolute bottom-5 right-5">
-        <h1 class="mb-5">
-          Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.
+    <!-- Hero 2 -->
+    <section class="bg-[#FAF9F7] min-h-[800px] w-full flex flex-col items-center relative px-4">
+        <h1 class="mt-10 mb-2 text-2xl md:text-3xl text-center z-10">Why Newsletter? How to enjoy your feed?</h1>
+        <h1 class="text-[#119C59] mb-[100px] md:mb-[150px] text-center z-10 text-base md:text-lg">
+            Be ready for an amazing experience.
         </h1>
-        <div class="flex items-center gap-3 mt-5">
-          <img src="img/circle.png" alt="" class="w-10 h-10 rounded-full">
-          <div>
-            <p class="text-sm font-medium">Savannah Miles</p>
-            <p class="text-xs text-gray-500">Brand Manager</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- Duplicate Testimonial Cards -->
-      <div class="w-11/12 md:w-[30%] bg-white p-5 rounded-lg shadow-md relative">
-        <img src="img/“”.png" alt="" class="w-8 absolute bottom-5 right-5">
-        <h1 class="mb-5">
-          Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.
-        </h1>
-        <div class="flex items-center gap-3 mt-5">
-          <img src="img/circle.png" alt="" class="w-10 h-10 rounded-full">
-          <div>
-            <p class="text-sm font-medium">Savannah Miles</p>
-            <p class="text-xs text-gray-500">Brand Manager</p>
-          </div>
-        </div>
-      </div>
+        <img src="images/Frame1.png" class="absolute w-[250px] md:w-[450px] top-[150px] md:top-[200px] z-0" alt="">
 
-      <div class="w-11/12 md:w-[30%] bg-white p-5 rounded-lg shadow-md relative">
-        <img src="img/“”.png" alt="" class="w-8 absolute bottom-5 right-5">
-        <h1 class="mb-5">
-          Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.
-        </h1>
-        <div class="flex items-center gap-3 mt-5">
-          <img src="img/circle.png" alt="" class="w-10 h-10 rounded-full">
-          <div>
-            <p class="text-sm font-medium">Savannah Miles</p>
-            <p class="text-xs text-gray-500">Brand Manager</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <!-- Section -->
-  <section>
-    <div class="w-full h-auto flex flex-wrap items-center justify-center relative">
-      <div class="w-full flex flex-wrap justify-center relative">
-
-        <!-- Text Section -->
-        <div class="w-full md:w-5/12 h-auto relative z-10 mt-10 px-6 text-center md:text-left">
-          <h1 class="text-3xl md:text-4xl">"Once you learn to read, you will be forever free"</h1>
-          <h1 class="text-xl md:text-2xl mt-5 text-[#119C59]">Frederick Douglas</h1>
+        <!-- First Row -->
+        <div
+            class="w-full md:w-8/12 flex flex-col md:flex-row gap-8 md:gap-0 md:h-20 z-10 justify-between mb-10 md:mb-20">
+            <div class="w-full md:w-3/12 relative mt-55 md:mt-0">
+                <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
+                <h1 class="text-[15px] font-semibold">Kill The Spam</h1>
+                <p class="text-[14px] text-gray-700">
+                    Use Newsletter email to subscribe to newsletters. Win the battle against spam. Earn more time for a
+                    joyful reading.
+                </p>
+            </div>
+            <div class="w-full md:w-3/12 relative">
+                <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
+                <h1 class="text-[15px] font-semibold">One-Click Unsubscribe</h1>
+                <p class="text-[14px] text-gray-700">
+                    Don’t like what you’re reading? Remove the feed and never see it again.
+                </p>
+            </div>
         </div>
 
-        <!-- Image Section -->
-        <div class="w-full md:w-[600px] relative z-0 mt-8 md:mt-0 flex justify-center md:justify-start">
-          <img src="img/Frame.png" alt="" class="w-full max-w-[600px] h-auto">
+        <!-- Second Row -->
+        <div
+            class="w-full md:w-10/12 flex flex-col md:flex-row gap-8 md:gap-0 md:h-30 z-10 justify-between mb-10 md:mb-20">
+            <div class="w-full md:w-3/12 relative">
+                <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
+                <h1 class="text-[15px] font-semibold w-40">Be part of Newsletter community</h1>
+                <p class="text-[14px] text-gray-700">
+                    Join top experts for a chat on the topics and trends that matter to you.
+                </p>
+            </div>
+            <div class="w-full md:w-3/12 relative">
+                <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
+                <h1 class="text-[15px] font-semibold">Control Your Feed</h1>
+                <p class="text-[14px] text-gray-700">
+                    Group newsletters into folders, create labels, quickly mark as read and update the appearance.
+                </p>
+            </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <!-- Section -->
-  <section class="w-full md:h-[400px] h-[750px] bg-[#25282B] md:mt-0">
-    <div class="flex flex-col md:flex-row justify-center md:justify-around items-center w-full h-[100%]">
-      <div
-        class="flex flex-col md:items-start md:justify-start items-center justify-center w-full md:w-[550px] h-[300px]">
-        <h2 class="text-[#FAF9F7] text-[30px] md:text-[35px] px-10 md:pl-0">
-          Bring back the joy of reading newsletters
-        </h2>
-        <h4 class="text-[#94DD8B] text-[18px] md:text-[20px] pl-10 md:pl-0">
-          Subscribe and be ready for an amazing experience
-        </h4>
-        <div class="text-[#FAF9F7] text-[13px] md:text-[15px] mt-5 space-y-5">
-          <p class="flex items-center gap-2"><img class="w-6 h-6" src="img/check.png" alt="icon"> Save
-            time
-            and read your newsletters in one place.</p>
-          <p class="flex items-center gap-2"><img class="w-6 h-6" src="img/check.png" alt="icon">Organize
-            your newsletter feed according to your interests.</p>
-          <p class="flex items-center gap-2"><img class="w-6 h-6" src="img/check.png" alt="icon">Forget
-            about newsletters emails and focus only in reading.</p>
+        <!-- Third Row -->
+        <div class="w-full md:w-8/12 flex flex-col md:flex-row gap-8 md:gap-0 md:h-30 z-10 justify-between">
+            <div class="w-full md:w-3/12 relative">
+                <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
+                <h1 class="text-[15px] font-semibold">Discover Newsletters</h1>
+                <p class="text-[14px] text-gray-700">
+                    Browse through your interests and find the ultimate content. Inspire yourself!
+                </p>
+            </div>
+            <div class="w-full md:w-3/12 relative">
+                <div class="absolute -left-3 mt-1 h-1/4 w-[3px] bg-[#119C59]"></div>
+                <h1 class="text-[15px] font-semibold">Enjoy Newsletter</h1>
+                <p class="text-[14px] text-gray-700">
+                    No ads and spam in this app. Take reading and sharing to the next level with Newsletter.
+                </p>
+            </div>
         </div>
-      </div>
-      <div class="relative flex md:flex-cols justify-center items-center w-[450px] h-[300px]">
-        <img class="absolute left-20 top-0  z-0 w-[200px] h-[220px]" src="img/card.png" alt="">
-        <img class="absolute left-35 top-10 z-10 w-[200px] h-[220px]" src="img/card.png" alt="">
-        <img class="absolute left-50 top-20 z-20 w-[200px] h-[220px]" src="img/card.png" alt="">
-      </div>
-    </div>
-  </section>
+    </section>
+    <!-- End 2 -->
 
+    <!-- Hero 3 -->
+    <section>
+        <div class="h-[500px]">
+            <div class="flex flex-col justify-center items-center h-full md:w-[50%] gap-7">
+                <div class="flex flex-col text-start md:w-[70%] gap-7 ml-3 mr-3 ">
+                    <h3 class="text-4xl text-[#25282B] font-medium">WHY NEWSLETTER-APP?</h3>
+                    <p>
+                        Newsletter-App is a brand new application for newsletters reading. With
+                        Newsletter-App, you will have the chance to bring back the joy of newsletter
+                        reading.
+                        There are no ads, no spam emails and…
+                    </p>
+                </div>
+                <div>
+                    <button
+                        class="border-2 cursor-pointer rounded-full px-14 py-3 hover:text-[#119C59] bg-[#119C59] hover:bg-white text-white md:mr-[270px]">
+                        READ MORE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End 3 -->
 
+    <!-- Hero 4 -->
+    <section class="bg-[#FFE3B3] md:h-[477px] justify-items-center content-center">
+        <div class="grid md:grid-cols-3 gap-9 rounded-lg ">
+            <div class="flex flex-col items-center relative mt-8 md:mt-0 bg-white w-[400px] h-[377px] rounded-lg">
+                <h5 class="text-[20px] mt-[70px] text-[#119C59] font-medium">BUSINESS DEVELOPMENT</h5>
+                <img class="w-[143px] h-[42px] mt-[25px] " src="images/agenus.png" alt="">
+                <p class="mt-[25px] text-center w-9/12 font-medium">Lorem ipsum dolor sit amet, adhuc nulla definiebas
+                    mei ad, ei
+                    doming aperiam delicata est. Lorem ipsum dolor sit amet.</p>
+                <img class="absolute bottom-0 right-0 w-[125px] h-[110px] bg-top-right " src="images/“”.png" alt="">
+            </div>
+            <div class="flex flex-col items-center relative bg-white w-[400px] h-[377px] rounded-lg">
+                <h5 class="text-[20px] mt-[70px] text-[#119C59] font-medium">BUSINESS DEVELOPMENT</h5>
+                <img class="w-[143px] h-[42px] mt-[25px] " src="images/agenus.png" alt="">
+                <p class="mt-[25px] text-center w-9/12 font-medium">Lorem ipsum dolor sit amet, adhuc nulla definiebas
+                    mei ad, ei
+                    doming aperiam delicata est. Lorem ipsum dolor sit amet.</p>
+                <img class="absolute bottom-0 right-0 w-[125px] h-[110px] bg-top-right " src="images/“”.png" alt="">
+            </div>
+            <div class="flex flex-col items-center mb-8 md:mb-0 relative bg-white w-[400px] h-[377px] rounded-lg">
+                <h5 class="text-[20px] mt-[70px] text-[#119C59] font-medium">BUSINESS DEVELOPMENT</h5>
+                <img class="w-[143px] h-[42px] mt-[25px] " src="images/agenus.png" alt="">
+                <p class="mt-[25px] font-medium text-center w-9/12">Lorem ipsum dolor sit amet, adhuc nulla definiebas
+                    mei ad, ei
+                    doming aperiam delicata est. Lorem ipsum dolor sit amet.</p>
+                <img class="absolute bottom-0 right-0 w-[125px] h-[110px] bg-top-right " src="images/“”.png" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- End 4 -->
 
+    <!-- Hero 5 -->
+    <section class="w-full h-[250px] flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center ">
+            <h2 class="text-center text-[33px] font-medium md:text-[50px]">Enjoy reading newsletters</h2>
+            <p class="px-8 text-center text-[20px] w-[473px] font-normal">Read valuable, high-quality content based on your
+                intest and expertise</p>
+        </div>
+    </section>
+    <!-- End 5 -->
 
+    <!-- Hero 6 -->
+     <section class="bg-[#FAF9F7] h-[500px] md:h-[400px] flex flex-col">
+        <div class="w-full flex md:mt-10 px-5">
+            <h1 class="text-[#119C59] pt-7 text-2xl mx-auto text-semibold ">Join 1000+ Happy Premium Users</h1>
+        </div>
+        <br>
+        <div class="flex flex-col md:flex-row md:justify-evenly px-4 md:px-0 md:mt-6">
+            <div class="w-full md:w-3/12 relative h-auto md:h-40 mb-6 md:mb-0">
+                <img src="images/“”.png" alt="" class="w-30 absolute bottom-0 right-0 w-[80px] md:w-[110px]">
+                <h1 class="mb-5 relative">
+                    Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.
+                </h1>
+                <div class="flex">
+                    <img src="images/pic.png" alt="" class="w-10 rounded-full">
+                    <div class="flex flex-col ml-2">
+                        <p class="text-[13px]">Savannah Miles</p>
+                        <p class="text-[12px] text-gray-500">brand manager</p>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Footer Section -->
-  <footer class="bg-white">
-    <!-- Top Section -->
-    <div class="flex flex-col md:flex-row gap-8 px-5 py-8 md:px-20 md:py-10">
-      <!-- Column 1 -->
-      <div class="w-full md:w-1/4 space-y-2">
-        <h1 class="text-[16px] text-[#119C59] font-semibold">Get started</h1>
-        <ul class="space-y-2 text-[14px]">
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Site Map</a></li>
-          <li><a href="#">F.A.Q.</a></li>
-        </ul>
-      </div>
+            <div class="w-full md:w-3/12 relative h-auto md:h-40 mb-6 md:mb-0">
+                <img src="images/“”.png" alt="" class="w-30 absolute bottom-0 right-0 w-[80px] md:w-[110px]">
+                <h1 class="mb-5 relative">
+                    Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.
+                </h1>
+                <div class="flex">
+                    <img src="images/pic.png" alt="" class="w-10 rounded-full">
+                    <div class="flex flex-col ml-2">
+                        <p class="text-[13px]">Savannah Miles</p>
+                        <p class="text-[12px] text-gray-500">brand manager</p>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Column 2 -->
-      <div class="w-full md:w-1/4 space-y-2">
-        <h1 class="text-[16px] text-[#119C59] font-semibold">Pricing</h1>
-        <ul class="space-y-2 text-[14px]">
-          <li><a href="#">Bronze</a></li>
-          <li><a href="#">Silver</a></li>
-          <li><a href="#">Gold</a></li>
-        </ul>
-      </div>
+            <div class="w-full md:w-3/12 relative h-auto md:h-40">
+                <img src="images/“”.png" alt="" class="w-30 absolute bottom-0 right-0 w-[80px] md:w-[110px]">
+                <h1 class="mb-5 relative">
+                    Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.
+                </h1>
+                <div class="flex">
+                    <img src="images/pic.png" alt="" class="w-10 rounded-full">
+                    <div class="flex flex-col ml-2">
+                        <p class="text-[13px]">Savannah Miles</p>
+                        <p class="text-[12px] text-gray-500">brand manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End 6 -->
 
-      <!-- Column 3 -->
-      <div class="w-full md:w-1/4 space-y-2">
-        <h1 class="text-[16px] text-[#119C59] font-semibold">Follow</h1>
-        <ul class="space-y-2 text-[14px]">
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Linkedin</a></li>
-          <li><a href="#">Twitter</a></li>
-        </ul>
-      </div>
-    </div>
+    <section class="w-full md:h-[400px] h-[750px] bg-[#25282B] md:mt-0">
+        <div class="flex flex-col md:flex-row justify-center md:justify-around items-center w-full h-[100%]">
+            <div
+                class="flex flex-col md:items-start md:justify-start items-center justify-center w-full md:w-[550px] h-[300px]">
+                <h2 class="text-[#FAF9F7] text-[30px] md:text-[35px] px-10 md:pl-0">
+                    Bring back the joy of reading newsletters
+                </h2>
+                <h4 class="text-[#94DD8B] text-[18px] md:text-[20px] pl-10 md:pl-0">
+                    Subscribe and be ready for an amazing experience
+                </h4>
+                <div class="text-[#FAF9F7] text-[13px] md:text-[15px] mt-5 space-y-5">
+                    <p class="flex items-center gap-2"><img class="w-6 h-6" src="images/check1.png" alt="icon"> Save
+                        time
+                        and read your newsletters in one place.</p>
+                    <p class="flex items-center gap-2"><img class="w-6 h-6" src="images/check1.png" alt="icon">Organize
+                        your newsletter feed according to your interests.</p>
+                    <p class="flex items-center gap-2"><img class="w-6 h-6" src="images/check1.png" alt="icon">Forget
+                        about newsletters emails and focus only in reading.</p>
+                </div>
+            </div>
+            <div class="relative flex md:flex-cols justify-center items-center w-[450px] h-[300px]">
+                <img class="absolute left-20 top-0  z-0 w-[200px] h-[220px]" src="images/XMLID.png" alt="">
+                <img class="absolute left-35 top-10 z-10 w-[200px] h-[220px]" src="images/XMLID.png" alt="">
+                <img class="absolute left-50 top-20 z-20 w-[200px] h-[220px]" src="images/XMLID.png" alt="">
+            </div>
+        </div>
+    </section>
 
-    <!-- Disclaimer -->
-    <div class="text-gray-500 text-[10px] px-5 pb-3 md:px-20">
-      <p>??? Data is a real-time snapshot *Data is delayed at least 15 minutes. Global Olives and Natural
-        product,
-        Market and Analysis.</p>
-    </div>
+    <!-- footer start -->
+    <footer class="bg-white">
+        <!-- Top Section -->
+        <div class="flex flex-col md:flex-row gap-8 px-5 py-8 md:px-20 md:py-10">
+            <!-- Column 1 -->
+            <div class="w-full md:w-1/4 space-y-2">
+                <h1 class="text-[16px] text-[#119C59] font-semibold">Get started</h1>
+                <ul class="space-y-2 text-[14px]">
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="#">F.A.Q.</a></li>
+                </ul>
+            </div>
 
-    <!-- Bottom Bar -->
-    <div class="h-auto bg-[#119C59] text-white w-full flex flex-col md:flex-row justify-between items-center px-5 py-4">
-      <!-- Left Links -->
-      <div class="text-[12px] flex flex-wrap justify-center md:justify-start gap-2 mb-2 md:mb-0">
-        <a href="#" class="hover:underline">Privacy Policy</a>
-        <span>/</span>
-        <a href="#" class="hover:underline">Personal Information</a>
-        <span>/</span>
-        <a href="#" class="hover:underline">Terms of Service</a>
-      </div>
+            <!-- Column 2 -->
+            <div class="w-full md:w-1/4 space-y-2">
+                <h1 class="text-[16px] text-[#119C59] font-semibold">Pricing</h1>
+                <ul class="space-y-2 text-[14px]">
+                    <li><a href="#">Bronze</a></li>
+                    <li><a href="#">Silver</a></li>
+                    <li><a href="#">Gold</a></li>
+                </ul>
+            </div>
 
-      <!-- Right Logo -->
-      <div>
-        <img src="img/logo.png" class="w-[212px] h-[32px]" alt="Logo">
-      </div>
-    </div>
-  </footer>
-  <script>
-    (function () {
-      const btn = document.getElementById('navToggle');
-      const menu = document.getElementById('mobileMenu');
-      const iconOpen = document.getElementById('iconOpen');
-      const iconClose = document.getElementById('iconClose');
+            <!-- Column 3 -->
+            <div class="w-full md:w-1/4 space-y-2">
+                <h1 class="text-[16px] text-[#119C59] font-semibold">Follow</h1>
+                <ul class="space-y-2 text-[14px]">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Linkedin</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
 
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        menu.classList.toggle('hidden');
-        menu.classList.toggle('flex');
-        iconOpen.classList.toggle('hidden');
-        iconClose.classList.toggle('hidden');
-      });
+        <!-- Disclaimer -->
+        <div class="text-gray-500 text-[10px] px-5 pb-3 md:px-20">
+            <p>??? Data is a real-time snapshot *Data is delayed at least 15 minutes. Global Olives and Natural product,
+                Market and Analysis.</p>
+        </div>
 
-      document.addEventListener('click', (e) => {
-        if (!btn.contains(e.target) && !menu.contains(e.target) && !menu.classList.contains('hidden')) {
-          menu.classList.add('hidden');
-          menu.classList.remove('flex');
-          btn.setAttribute('aria-expanded', 'false');
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        }
-      });
-    })();
-  </script>
+        <!-- Bottom Bar -->
+        <div
+            class="h-auto bg-[#119C59] text-white w-full flex flex-col md:flex-row justify-between items-center px-5 py-4">
+            <!-- Left Links -->
+            <div class="text-[12px] flex flex-wrap justify-center md:justify-start gap-2 mb-2 md:mb-0">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+                <span>/</span>
+                <a href="#" class="hover:underline">Personal Information</a>
+                <span>/</span>
+                <a href="#" class="hover:underline">Terms of Service</a>
+            </div>
+
+            <!-- Right Logo -->
+            <div>
+                <img src="images/footer.png" class="w-[212px] h-[32px] " alt="Logo">
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
 </body>
-
 </html>
